@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MJ Intelligence — PR & AI Solutions</title>
+    <meta
+      name="description"
+      content="MJ Intelligence delivers PR growth, AI content generation, and social trend amplification. AI CCTV is coming soon."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --bg-soft: #121824;
+        --card: #151c2b;
+        --accent: #f2c14e;
+        --accent-2: #5cc8ff;
+        --text: #f6f7fb;
+        --muted: #b7c0d1;
+        --stroke: rgba(255, 255, 255, 0.08);
+        --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", system-ui, -apple-system, sans-serif;
+        color: var(--text);
+        background: radial-gradient(
+            1200px 600px at 10% -10%,
+            rgba(92, 200, 255, 0.25),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 500px at 90% -20%,
+            rgba(242, 193, 78, 0.3),
+            transparent 55%
+          ),
+          var(--bg);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1100px, 92vw);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 28px 0 8px;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+      }
+
+      .logo img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        font-size: 0.95rem;
+        color: var(--muted);
+      }
+
+      .cta-btn {
+        background: linear-gradient(135deg, var(--accent), #f4a261);
+        color: #1b1203;
+        font-weight: 700;
+        padding: 12px 20px;
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 52px 0 70px;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        color: var(--accent-2);
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.4rem, 3.8vw, 3.8rem);
+        margin: 12px 0 18px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        margin-top: 26px;
+        flex-wrap: wrap;
+      }
+
+      .secondary-btn {
+        border: 1px solid var(--stroke);
+        color: var(--text);
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+
+      .hero-card {
+        background: linear-gradient(145deg, rgba(21, 28, 43, 0.9), rgba(11, 15, 20, 0.95));
+        border: 1px solid var(--stroke);
+        padding: 28px;
+        border-radius: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 24px;
+      }
+
+      .metric {
+        padding: 16px;
+        background: var(--card);
+        border-radius: 16px;
+        border: 1px solid var(--stroke);
+      }
+
+      .metric h3 {
+        margin: 0 0 6px;
+        font-size: 1.4rem;
+        color: var(--accent);
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        margin: 0 0 14px;
+      }
+
+      .section-subtitle {
+        color: var(--muted);
+        max-width: 720px;
+        line-height: 1.6;
+      }
+
+      .grid {
+        margin-top: 32px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        padding: 22px;
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(92, 200, 255, 0.15);
+        color: var(--accent-2);
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      .card h3 {
+        margin: 14px 0 10px;
+        font-size: 1.25rem;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+        align-items: center;
+      }
+
+      .list {
+        display: grid;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .list-item {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 12px 14px;
+        border-radius: 14px;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        background: var(--accent);
+        margin-top: 6px;
+      }
+
+      .coming-soon {
+        background: linear-gradient(120deg, rgba(92, 200, 255, 0.15), rgba(242, 193, 78, 0.2));
+        border: 1px dashed rgba(255, 255, 255, 0.25);
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .contact {
+        background: var(--bg-soft);
+        border-top: 1px solid var(--stroke);
+      }
+
+      .form-embed {
+        margin-top: 24px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--stroke);
+        min-height: 520px;
+      }
+
+      footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .split {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .metrics {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="logo">
+          <img src="logo.png" alt="MJ Intelligence logo" />
+          <span>MJ Intelligence</span>
+        </div>
+        <nav class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#pr">PR</a>
+          <a href="#aicctv">AI CCTV</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="cta-btn" href="#contact">Start a Project</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <div>
+          <div class="eyebrow">PR + AI Growth Studio</div>
+          <h1>We help brands get noticed, talked about, and trusted.</h1>
+          <p>
+            MJ Intelligence blends modern PR strategy with AI-powered content to
+            build visibility across Twitter, Instagram, and high-impact digital
+            channels. From trend-led storytelling to scalable content engines,
+            we move your brand into the spotlight.
+          </p>
+          <div class="hero-actions">
+            <a class="cta-btn" href="#contact">Book a Discovery Call</a>
+            <a class="secondary-btn" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h2>What we do best</h2>
+          <p class="section-subtitle">
+            Strategy, content, and buzz — aligned to your brand goals.
+          </p>
+          <div class="metrics">
+            <div class="metric">
+              <h3>PR</h3>
+              <span>Media-ready narratives</span>
+            </div>
+            <div class="metric">
+              <h3>AI</h3>
+              <span>Content at scale</span>
+            </div>
+            <div class="metric">
+              <h3>Growth</h3>
+              <span>Trend-led visibility</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="container">
+        <h2 class="section-title">Signature Services</h2>
+        <p class="section-subtitle">
+          We craft PR systems and AI workflows that help you launch, grow, and
+          maintain momentum across social platforms.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <span class="tag">Trending PR</span>
+            <h3>Twitter & Instagram Trend Strategy</h3>
+            <p>
+              We position your brand inside trending conversations with timing,
+              tone, and storytelling designed for shareability.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">AI Content</span>
+            <h3>AI Content Generation</h3>
+            <p>
+              High-volume content workflows for reels, posts, and campaigns —
+              customized to your voice and brand guidelines.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Brand Voice</span>
+            <h3>Messaging & Narrative Design</h3>
+            <p>
+              We build stories that connect with audiences, turning attention
+              into trust and trust into action.
+            </p>
+          </div>
+          <div class="card">
+            <span class="tag">Campaign Ops</span>
+            <h3>Launch & Campaign Support</h3>
+            <p>
+              End-to-end planning, creative direction, and reporting for
+              high-impact launches and PR spikes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="pr" class="container split">
+        <div>
+          <h2 class="section-title">PR that feels native to today’s internet</h2>
+          <p class="section-subtitle">
+            Your audience lives on social. We make sure your brand does too —
+            with content that aligns to trends, creators, and the moments that
+            matter most.
+          </p>
+          <div class="list">
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>Trend Tracking</strong>
+                <p>Daily monitoring of Twitter/X and Instagram topics.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>AI-Powered Ideation</strong>
+                <p>Fast creative concepts that match your audience’s mood.</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>
+                <strong>Execution & Analytics</strong>
+                <p>Scheduling, publishing, and reporting for every campaign.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Perfect for</h3>
+          <p class="section-subtitle">
+            Founders, startups, and teams that want consistent attention without
+            wasting time on random content.
+          </p>
+          <div class="list">
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>Brand launches and product announcements</div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>Community and creator-led growth</div>
+            </div>
+            <div class="list-item">
+              <span class="dot"></span>
+              <div>Always-on trend positioning</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="aicctv" class="container">
+        <div class="coming-soon">
+          <span class="tag">Coming Soon</span>
+          <h2 class="section-title">AI CCTV by MJ Intelligence</h2>
+          <p class="section-subtitle">
+            We’re building intelligent video monitoring that understands
+            incidents, detects anomalies, and delivers smarter alerts for
+            businesses and institutions.
+          </p>
+        </div>
+      </section>
+
+      <section class="container">
+        <h2 class="section-title">How we work</h2>
+        <p class="section-subtitle">
+          A clear, collaborative process so you know what’s happening at every
+          step.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <h3>1. Discover</h3>
+            <p>We define your goals, voice, and growth opportunities.</p>
+          </div>
+          <div class="card">
+            <h3>2. Build</h3>
+            <p>We craft the PR narrative and AI content engine.</p>
+          </div>
+          <div class="card">
+            <h3>3. Launch</h3>
+            <p>We publish, monitor, and optimize for maximum reach.</p>
+          </div>
+          <div class="card">
+            <h3>4. Scale</h3>
+            <p>We iterate with real data and fresh trends every week.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-title">Let’s build your visibility</h2>
+          <p class="section-subtitle">
+            Fill the form and our team will reach out within 24–48 hours.
+          </p>
+          <div class="form-embed">
+            <iframe
+              title="MJ Intelligence Contact Form"
+              src="https://docs.google.com/forms/d/e/1FAIpQLSezUPXOwgSESOCyfsnVm8Yvmdg5hxBqOJ2zycQi6sAOquwZUA/viewform?embedded=true"
+              width="100%"
+              height="520"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+            >
+              Loading…
+            </iframe>
+          </div>
+          <p class="section-subtitle" style="margin-top: 12px;">
+            If the form doesn't show, let me know and I can switch this to a
+            direct "Open Form" button instead.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 MJ Intelligence. All rights reserved.</div>
+    </footer>
+  </body>
+</html>
